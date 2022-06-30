@@ -139,8 +139,8 @@
      (for [pace-per-mile (range 300 600 5)]
        [:tr
         [:td (format-pace pace-per-mile)]
-        [:td (format-pace (get-time pace-per-mile 1 3.12))]
-        [:td (format-pace (get-time pace-per-mile 1 6.25))]
+        [:td (format-pace (get-time pace-per-mile 1 3.107))]
+        [:td (format-pace (get-time pace-per-mile 1 6.214))]
         [:td (format-pace (get-time pace-per-mile 1 13.1))]
         [:td (format-pace (get-time pace-per-mile 1 26.2))]])]]])
 
