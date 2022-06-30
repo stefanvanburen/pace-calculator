@@ -1,5 +1,6 @@
 {:source-paths ["src"]
- :dependencies [[reagent "1.1.0"]]
+ :dependencies [[reagent "1.1.0"]
+                [reagent-utils "0.3.4"]]
  :dev-http {8080 "public/"}
  :builds {:app {:target :browser
                 :output-dir "public/js"

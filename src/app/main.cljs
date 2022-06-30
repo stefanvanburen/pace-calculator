@@ -1,13 +1,14 @@
 (ns app.main
   {:clj-kondo/config '{:lint-as {reagent.core/with-let clojure.core/let}}}
   (:require [reagent.dom :as rdom]
-            [reagent.core :as r]))
+            [reagent.core :as r]
+            [reagent.format :refer [format]]))
 
-(defn get-pace [t1 d1 d2]
+(defn get-time [t1 d1 d2]
   (* t1 (Math/pow (/ d2 d1) 1.06)))
 
 (comment
-  (get-pace (+ 12 (* 60 42)) 10 21)) ; 5559.2493474422945
+  (get-time (+ 12 (* 60 42)) 10 21)) ; 5559.2493474422945
 
 (defn minutes-from-pace [pace]
   (-> pace
@@ -39,7 +40,12 @@
 
 (defn format-pace [pace]
   (when (not= pace "")
-    (str (hours-from-pace pace) ":" (minutes-from-pace pace) ":" (seconds-from-pace pace))))
+    (let [hours (hours-from-pace pace)
+          minutes (minutes-from-pace pace)
+          seconds (seconds-from-pace pace)]
+      (if (= hours 0)
+        (str minutes ":" (format "%02d" seconds))
+        (str hours ":" minutes ":" (format "%02d" seconds))))))
 
 (comment
   (format-pace 5559))
@@ -107,7 +113,7 @@
         [:output {:for "pace"} @pace]]
 
       [:button {:on-click
-                #(let [new-pace (format-pace (get-pace
+                #(let [new-pace (format-pace (get-time
                                                (total-seconds @have-run-hours @have-run-minutes @have-run-seconds)
                                                @have-run-distance
                                                @want-run-distance))]
@@ -115,13 +121,35 @@
                    (prn new-pace)
                    (reset! pace new-pace))
                 :id "pace"}
-       "Calculate Pace"]]))
+       "Calculate Time"]]))
+
+(defn pace-table
+  []
+  [:section
+   [:h2 "Pace Table"]
+   [:table
+    [:thead
+     [:tr
+      [:th "Pace (minutes/mile)"]
+      [:th "5k"]
+      [:th "10k"]
+      [:th "Half Marathon"]
+      [:th "Marathon"]]]
+    [:tbody
+     (for [pace-per-mile (range 300 600 5)]
+       [:tr
+        [:td (format-pace pace-per-mile)]
+        [:td (format-pace (get-time pace-per-mile 1 3.12))]
+        [:td (format-pace (get-time pace-per-mile 1 6.25))]
+        [:td (format-pace (get-time pace-per-mile 1 13.1))]
+        [:td (format-pace (get-time pace-per-mile 1 26.2))]])]]])
 
 (defn app []
   [:main
    [:h1 "Pace Calculator"]
    [:a {:href "https://github.com/stefanvanburen/pace-calculator"} "Source Code"]
-   [calculator]])
+   [calculator]
+   [pace-table]])
 
 #_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 (defn ^:export main! []
