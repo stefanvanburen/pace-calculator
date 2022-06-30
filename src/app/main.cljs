@@ -45,7 +45,7 @@
           seconds (seconds-from-pace pace)]
       (if (= hours 0)
         (str minutes ":" (format "%02d" seconds))
-        (str hours ":" minutes ":" (format "%02d" seconds))))))
+        (str hours ":" (format "%02d" minutes) ":" (format "%02d" seconds))))))
 
 (comment
   (format-pace 5559))
