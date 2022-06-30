@@ -123,8 +123,20 @@
                 :id "pace"}
        "Calculate Time"]]))
 
-(defn pace-table
-  []
+(defn source []
+  [:blockquote {:cite "https://www.hillrunner.com/calculators/race-conversion/"}
+   [:b "How does this get your predicted time?"]
+   [:p "
+        The formula used for this calculator is one devised by Pete Riegel in the late 70s.
+        It has withstood the test of time as a formula as accurate as any out there for running.
+        In the early 80s,
+        Riegel refined it for other sports for an article entitled “Athletic Records and Human Endurance” published in American Scientist.
+        And now, the formula:
+        "
+    [:p
+     [:i "t2 = t1 * (d2 / d1)" [:sup "1.06"]]]]])
+
+(defn pace-table []
   [:section
    [:h2 "Pace Table"]
    [:table
@@ -148,6 +160,7 @@
   [:main
    [:h1 "Pace Calculator"]
    [:a {:href "https://github.com/stefanvanburen/pace-calculator"} "Source Code"]
+   [source]
    [calculator]
    [pace-table]])
 
