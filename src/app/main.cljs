@@ -102,8 +102,6 @@
                     :key (str "second-" second)}
            second])]]
 
-      ;; want to run!!!
-      ;; TODO: switch between miles and kilometers
       [:label {:for "want-run-distance"} "I want to run ..."]
       [:input {:id "want-run-distance"
                :type "number"
