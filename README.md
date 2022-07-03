@@ -4,6 +4,8 @@
 
 A simple pace calculator, for calculating running paces.
 
+Hosted on Netlify at <https://pc.vanburen.xyz>.
+
 ## Development
 
 Install development dependencies:
