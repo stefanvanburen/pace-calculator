@@ -66,6 +66,7 @@
       [:label {:for "have-run-distance"} "I have run ..."]
       [:input {:id "have-run-distance"
                :type "number"
+               :min "0"
                :on-change #(reset! have-run-distance (-> % .-target .-value int))}]
 
       [:fieldset
@@ -105,6 +106,7 @@
       [:label {:for "want-run-distance"} "I want to run ..."]
       [:input {:id "want-run-distance"
                :type "number"
+               :min "0"
                :on-change #(reset! want-run-distance (-> % .-target .-value int))}]
 
       [:div
