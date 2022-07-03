@@ -115,8 +115,6 @@
                                                (total-seconds @have-run-hours @have-run-minutes @have-run-seconds)
                                                @have-run-distance
                                                @want-run-distance))]
-                   (prn @have-run-hours @have-run-minutes @have-run-seconds @have-run-distance @want-run-distance)
-                   (prn new-pace)
                    (reset! pace new-pace))
                 :id "pace"}
        "Calculate Time"]]))
