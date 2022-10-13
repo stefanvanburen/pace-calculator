@@ -63,49 +63,50 @@
                pace (r/atom "")]
 
     [:section
+      [:h2 {:class "text-xl"} "Calculator"]
+
       [:label {:for "have-run-distance"} "I have run ..."]
       [:input {:id "have-run-distance"
                :type "number"
+               :class "border"
                :min "0"
+               ;; TODO: does the int conversion here truncate?
                :on-change #(reset! have-run-distance (-> % .-target .-value int))}]
 
       [:fieldset
        [:legend "In the following time"]
 
-       ; [:label {:for "hours"} "Hours"]
-       [:select
-        {:id "hours"
-         :on-change #(reset! have-run-hours (-> % .-target .-value int))}
+       [:select {:id "hours"
+                 :class "border"
+                 :on-change #(reset! have-run-hours (-> % .-target .-value int))}
         (for [hour (range 24)]
           [:option {:value hour
                     :key (str "hour-" hour)}
            hour])]
+       [:label {:for "hours"} "Hours"]
 
-       ":"
-
-       ; [:label {:for "minutes"} "Minutes"]
-       [:select
-        {:id "minutes"
-         :on-change #(reset! have-run-minutes (-> % .-target .-value int))}
+       [:select {:id "minutes"
+                 :class "border"
+                 :on-change #(reset! have-run-minutes (-> % .-target .-value int))}
         (for [minute (range 60)]
           [:option {:value minute
                     :key (str "minute-" minute)}
            minute])]
+       [:label {:for "minutes"} "Minutes"]
 
-       ":"
-
-       ; [:label {:for "seconds"} "Seconds"]
-       [:select
-        {:id "seconds"
-         :on-change #(reset! have-run-seconds (-> % .-target .-value int))}
+       [:select {:id "seconds"
+                 :class "border"
+                 :on-change #(reset! have-run-seconds (-> % .-target .-value int))}
         (for [second (range 60)]
           [:option {:value second
                     :key (str "second-" second)}
-           second])]]
+           second])]
+       [:label {:for "seconds"} "Seconds"]]
 
       [:label {:for "want-run-distance"} "I want to run ..."]
       [:input {:id "want-run-distance"
                :type "number"
+               :class "border"
                :min "0"
                :on-change #(reset! want-run-distance (-> % .-target .-value int))}]
 
@@ -129,14 +130,13 @@
         It has withstood the test of time as a formula as accurate as any out there for running.
         In the early 80s,
         Riegel refined it for other sports for an article entitled “Athletic Records and Human Endurance” published in American Scientist.
-        And now, the formula:
-        "
-    [:p
-     [:i "t2 = t1 * (d2 / d1)" [:sup "1.06"]]]]])
+        "]
+   [:p "And now, the formula:"]
+   [:p [:var "t2"] "=" [:var "t1"] "×" "(" [:var "d2"] "/" [:var "d1"] ")" [:sup "1.06"]]])
 
 (defn pace-table []
   [:section
-   [:h2 "Pace Table"]
+   [:h2 {:class "text-xl"} "Pace Table"]
    [:table
     [:thead
      [:tr
@@ -155,11 +155,15 @@
         [:td (format-pace (get-time pace-per-mile 1 26.2))]])]]])
 
 (defn app []
-  [:main
-   [:h1 "Pace Calculator"]
-   [:a {:href "https://github.com/stefanvanburen/pace-calculator"} "Source Code"]
+  [:main {:class "p-8"}
+   [:h1 {:class "text-2xl"} "Pace Calculator"]
+   [:a {:href "https://github.com/stefanvanburen/pace-calculator"
+        :class "text-blue-600"} "Source Code"]
+   [:br]
    [source]
+   [:br]
    [calculator]
+   [:br]
    [pace-table]])
 
 #_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
