@@ -4,6 +4,8 @@ packages:
   - npm
   - jre-openjdk-headless
   - hut
+sources:
+  - https://git.sr.ht/~svbn/pace-calculator
 oauth: pages.sr.ht/PAGES:RW
 tasks:
   - build: |
