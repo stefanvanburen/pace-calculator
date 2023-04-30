@@ -1,8 +1,5 @@
 # pace calculator
 
-> **Note**
-> The canonical source for this repository is now at https://git.sr.ht/~svbn/pace-calculator.
-
 A simple pace calculator, for calculating running paces.
 
 Hosted at <https://pc.vanburen.xyz>.
