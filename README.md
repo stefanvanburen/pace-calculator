@@ -1,10 +1,11 @@
 # pace calculator
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/09186d22-0fc2-40e3-9d24-55cdc16f0e72/deploy-status)](https://app.netlify.com/sites/jovial-melomakarona-a28f32/deploys)
+> **Note**
+> The canonical source for this repository is now at https://git.sr.ht/~svbn/pace-calculator.
 
 A simple pace calculator, for calculating running paces.
 
-Hosted on Netlify at <https://pc.vanburen.xyz>.
+Hosted at <https://pc.vanburen.xyz>.
 
 ## Development
 
