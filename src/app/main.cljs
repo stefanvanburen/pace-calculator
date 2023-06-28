@@ -145,7 +145,7 @@
       [:th "10k"]
       [:th "Half Marathon"]
       [:th "Marathon"]]]
-    [:tbody
+    [:tbody {:class "tabular-nums"}
      (for [pace-per-mile (range 300 600 5)]
        [:tr
         [:td (format-pace pace-per-mile)]
