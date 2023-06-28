@@ -157,7 +157,7 @@
 (defn app []
   [:main {:class "p-8"}
    [:h1 {:class "text-2xl"} "Pace Calculator"]
-   [:a {:href "https://github.com/stefanvanburen/pace-calculator"
+   [:a {:href "https://git.sr.ht/~svbn/pace-calculator"
         :class "text-blue-600"} "Source Code"]
    [:br]
    [source]
