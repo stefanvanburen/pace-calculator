@@ -1,4 +1,5 @@
 node_modules/
 public/js
+public/main.css
 .shadow-cljs
 .nrepl-*

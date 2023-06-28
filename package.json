@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "build": "shadow-cljs release app",
+    "build": "tailwindcss -i ./src/input.css -o public/main.css --minify && shadow-cljs release app",
     "dev": "shadow-cljs watch app",
     "css": "tailwindcss -i ./src/input.css -o ./public/main.css --watch"
   },
