@@ -63,64 +63,64 @@
                pace (r/atom "")]
 
     [:section
-      [:h2 {:class "text-xl"} "Calculator"]
+     [:h2 {:class "text-xl"} "Calculator"]
 
-      [:label {:for "have-run-distance"} "I have run ..."]
-      [:input {:id "have-run-distance"
-               :type "number"
-               :class "border"
-               :min "0"
+     [:label {:for "have-run-distance"} "I have run ..."]
+     [:input {:id "have-run-distance"
+              :type "number"
+              :class "border"
+              :min "0"
                ;; TODO: does the int conversion here truncate?
-               :on-change #(reset! have-run-distance (-> % .-target .-value int))}]
+              :on-change #(reset! have-run-distance (-> % .-target .-value int))}]
 
-      [:fieldset
-       [:legend "In the following time"]
+     [:fieldset
+      [:legend "In the following time"]
 
-       [:select {:id "hours"
-                 :class "border"
-                 :on-change #(reset! have-run-hours (-> % .-target .-value int))}
-        (for [hour (range 24)]
-          [:option {:value hour
-                    :key (str "hour-" hour)}
-           hour])]
-       [:label {:for "hours"} "Hours"]
+      [:select {:id "hours"
+                :class "border"
+                :on-change #(reset! have-run-hours (-> % .-target .-value int))}
+       (for [hour (range 24)]
+         [:option {:value hour
+                   :key (str "hour-" hour)}
+          hour])]
+      [:label {:for "hours"} "Hours"]
 
-       [:select {:id "minutes"
-                 :class "border"
-                 :on-change #(reset! have-run-minutes (-> % .-target .-value int))}
-        (for [minute (range 60)]
-          [:option {:value minute
-                    :key (str "minute-" minute)}
-           minute])]
-       [:label {:for "minutes"} "Minutes"]
+      [:select {:id "minutes"
+                :class "border"
+                :on-change #(reset! have-run-minutes (-> % .-target .-value int))}
+       (for [minute (range 60)]
+         [:option {:value minute
+                   :key (str "minute-" minute)}
+          minute])]
+      [:label {:for "minutes"} "Minutes"]
 
-       [:select {:id "seconds"
-                 :class "border"
-                 :on-change #(reset! have-run-seconds (-> % .-target .-value int))}
-        (for [second (range 60)]
-          [:option {:value second
-                    :key (str "second-" second)}
-           second])]
-       [:label {:for "seconds"} "Seconds"]]
+      [:select {:id "seconds"
+                :class "border"
+                :on-change #(reset! have-run-seconds (-> % .-target .-value int))}
+       (for [second (range 60)]
+         [:option {:value second
+                   :key (str "second-" second)}
+          second])]
+      [:label {:for "seconds"} "Seconds"]]
 
-      [:label {:for "want-run-distance"} "I want to run ..."]
-      [:input {:id "want-run-distance"
-               :type "number"
-               :class "border"
-               :min "0"
-               :on-change #(reset! want-run-distance (-> % .-target .-value int))}]
+     [:label {:for "want-run-distance"} "I want to run ..."]
+     [:input {:id "want-run-distance"
+              :type "number"
+              :class "border"
+              :min "0"
+              :on-change #(reset! want-run-distance (-> % .-target .-value int))}]
 
-      [:div
-        [:output {:for "pace"} @pace]]
+     [:div
+      [:output {:for "pace"} @pace]]
 
-      [:button {:on-click
-                #(let [new-pace (format-pace (get-time
-                                               (total-seconds @have-run-hours @have-run-minutes @have-run-seconds)
-                                               @have-run-distance
-                                               @want-run-distance))]
-                   (reset! pace new-pace))
-                :id "pace"}
-       "Calculate Time"]]))
+     [:button {:on-click
+               #(let [new-pace (format-pace (get-time
+                                             (total-seconds @have-run-hours @have-run-minutes @have-run-seconds)
+                                             @have-run-distance
+                                             @want-run-distance))]
+                  (reset! pace new-pace))
+               :id "pace"}
+      "Calculate Time"]]))
 
 (defn source []
   [:blockquote {:cite "https://www.hillrunner.com/calculators/race-conversion/"}
