@@ -137,25 +137,25 @@
 (defn pace-table []
   [:section
    [:h2 {:class "text-xl"} "Pace Table"]
-   [:table
-    [:thead
+   [:table {:class "border w-screen md:w-auto p-0"}
+    [:thead {:class "sticky top-0 bg-white"}
      [:tr
-      [:th "Pace (minutes/mile)"]
-      [:th "5k"]
-      [:th "10k"]
-      [:th "Half Marathon"]
-      [:th "Marathon"]]]
+      [:th {:class "border"} "Pace"]
+      [:th {:class "border"} "5k"]
+      [:th {:class "border"} "10k"]
+      [:th {:class "border"} "Half"]
+      [:th {:class "border"} "Marathon"]]]
     [:tbody {:class "tabular-nums"}
      (for [pace-per-mile (range 300 600 5)]
        [:tr
-        [:td (format-pace pace-per-mile)]
-        [:td (format-pace (get-time pace-per-mile 1 3.107))]
-        [:td (format-pace (get-time pace-per-mile 1 6.214))]
-        [:td (format-pace (get-time pace-per-mile 1 13.1))]
-        [:td (format-pace (get-time pace-per-mile 1 26.2))]])]]])
+        [:td {:class "border text-right"} (format-pace pace-per-mile)]
+        [:td {:class "border text-right"} (format-pace (get-time pace-per-mile 1 3.107))]
+        [:td {:class "border text-right"} (format-pace (get-time pace-per-mile 1 6.214))]
+        [:td {:class "border text-right"} (format-pace (get-time pace-per-mile 1 13.1))]
+        [:td {:class "border text-right"} (format-pace (get-time pace-per-mile 1 26.2))]])]]])
 
 (defn app []
-  [:main {:class "p-8"}
+  [:main {:class "p-2 md:p-8"}
    [:h1 {:class "text-2xl"} "Pace Calculator"]
    [:a {:href "https://git.sr.ht/~svbn/pace-calculator"
         :class "text-blue-600"} "Source Code"]
