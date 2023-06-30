@@ -14,12 +14,11 @@ tasks:
       cd pace-calculator
       tar -C public -cvz . > site.tar.gz
   - upload: |
+      cd pace-calculator
       # Only upload on the main branch.
       if [ "$(git rev-parse origin/main)" != "$(git rev-parse HEAD)" ]
       then
         echo "Not on main branch, not publishing!"
         exit 0
       fi
-      cd pace-calculator
-      hut pages publish -d pc.vanburen.xyz site.tar.gz
-
+      hut pages publish --domain pc.vanburen.xyz site.tar.gz
