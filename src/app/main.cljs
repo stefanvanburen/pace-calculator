@@ -140,7 +140,7 @@
    [:table {:class "border w-screen md:w-auto p-0"}
     [:thead {:class "sticky top-0 bg-white"}
      [:tr
-      [:th {:class "border"} "Pace"]
+      [:th {:class "border"} "1 mile"]
       [:th {:class "border"} "5k"]
       [:th {:class "border"} "10k"]
       [:th {:class "border"} "Half"]
