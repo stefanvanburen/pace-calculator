@@ -12,7 +12,7 @@
 
 (defn minutes-from-pace [pace]
   (-> pace
-      (rem (* 60 60)) ; Stripe the "hour" component
+      (rem (* 60 60)) ; Strip the "hour" component
       (/ 60)          ; Divide seconds by 60 for minutes
       Math/floor      ; Floor to nearest minute
       int))           ; Convert to integer
