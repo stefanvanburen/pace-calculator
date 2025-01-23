@@ -70,8 +70,7 @@
               :type "number"
               :class "border"
               :min "0"
-               ;; TODO: does the int conversion here truncate?
-              :on-change #(reset! have-run-distance (-> % .-target .-value int))}]
+              :on-change #(reset! have-run-distance (-> % .-target .-value parse-double))}]
 
      [:fieldset
       [:legend "In the following time"]
