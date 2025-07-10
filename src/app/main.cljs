@@ -165,6 +165,5 @@
    [:br]
    [pace-table]])
 
-#_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 (defn ^:export main! []
   (rdom/render [app] (js/document.querySelector "#app")))
