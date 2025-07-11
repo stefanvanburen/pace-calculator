@@ -136,8 +136,8 @@
 (defn pace-table []
   [:section
    [:h2 {:class "text-xl"} "Pace Table"]
-   [:table {:class "border w-screen md:w-auto p-0"}
-    [:thead {:class "sticky top-0 bg-white"}
+   [:table {:class "table-auto border"}
+    [:thead {:class "sticky"}
      [:tr
       [:th {:class "border"} "1 mile"]
       [:th {:class "border"} "5k"]
@@ -147,11 +147,11 @@
     [:tbody {:class "tabular-nums"}
      (for [pace-per-mile (range 300 600 5)]
        [:tr
-        [:td {:class "border text-right"} (format-pace pace-per-mile)]
-        [:td {:class "border text-right"} (format-pace (get-time pace-per-mile 1 3.107))]
-        [:td {:class "border text-right"} (format-pace (get-time pace-per-mile 1 6.214))]
-        [:td {:class "border text-right"} (format-pace (get-time pace-per-mile 1 13.1))]
-        [:td {:class "border text-right"} (format-pace (get-time pace-per-mile 1 26.2))]])]]])
+        [:td {:class "border text-right p-1"} (format-pace pace-per-mile)]
+        [:td {:class "border text-right p-1"} (format-pace (get-time pace-per-mile 1 3.107))]
+        [:td {:class "border text-right p-1"} (format-pace (get-time pace-per-mile 1 6.214))]
+        [:td {:class "border text-right p-1"} (format-pace (get-time pace-per-mile 1 13.1))]
+        [:td {:class "border text-right p-1"} (format-pace (get-time pace-per-mile 1 26.2))]])]]])
 
 (defn app []
   [:main {:class "p-2 md:p-8"}
