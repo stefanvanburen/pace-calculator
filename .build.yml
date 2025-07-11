@@ -1,12 +1,13 @@
 image: archlinux
 packages:
+  - npm
   - jre-openjdk-headless
   - hut
-  - bun
 oauth: pages.sr.ht/PAGES:RW
 tasks:
   - build: |
       cd pace-calculator
+      npm install --global bun
       bun install --production
       bun run build
   - package: |
