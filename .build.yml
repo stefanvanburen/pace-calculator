@@ -2,6 +2,7 @@ image: archlinux
 packages:
   - jre-openjdk-headless
   - hut
+  - unzip
 oauth: pages.sr.ht/PAGES:RW
 tasks:
   - build: |
