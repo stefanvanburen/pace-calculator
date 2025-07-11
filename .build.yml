@@ -9,7 +9,7 @@ tasks:
       cd pace-calculator
       curl -fsSL https://bun.com/install | bash
       source /home/build/.bashrc
-      bun install --production
+      bun install
       bun run build
   - package: |
       cd pace-calculator
