@@ -1,8 +1,9 @@
 (ns app.main
   {:clj-kondo/config '{:lint-as {reagent.core/with-let clojure.core/let}}}
-  (:require [reagent.dom :as rdom]
+  (:require [reagent.dom.client :as rdomc]
             [reagent.core :as r]
-            [reagent.format :refer [format]]))
+            [goog.string :as gstring]
+            [goog.string.format]))
 
 (defn get-time [t1 d1 d2]
   (* t1 (Math/pow (/ d2 d1) 1.06)))
@@ -44,8 +45,8 @@
           minutes (minutes-from-pace pace)
           seconds (seconds-from-pace pace)]
       (if (= hours 0)
-        (str minutes ":" (format "%02d" seconds))
-        (str hours ":" (format "%02d" minutes) ":" (format "%02d" seconds))))))
+        (str minutes ":" (gstring/format "%02d" seconds))
+        (str hours ":" (gstring/format "%02d" minutes) ":" (gstring/format "%02d" seconds))))))
 
 (comment
   (format-pace 5559))
@@ -160,4 +161,4 @@
    [pace-table]])
 
 (defn ^:export main! []
-  (rdom/render [app] (js/document.querySelector "#app")))
+  (rdomc/render (rdomc/create-root (js/document.querySelector "#app")) [app]))
