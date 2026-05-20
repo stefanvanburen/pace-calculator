@@ -19,9 +19,3 @@ npm run dev
 ```
 
 Once the watcher is running, open [localhost:8080](http://localhost:8080).
-
-Run the `tailwindcss` watcher with:
-
-```sh
-npm run css
-```
