@@ -63,12 +63,11 @@
                pace (r/atom "")]
 
     [:section
-     [:h2 {:class "text-xl"} "Calculator"]
+     [:h2 "Calculator"]
 
      [:label {:for "have-run-distance"} "I have run ..."]
      [:input {:id "have-run-distance"
               :type "number"
-              :class "border"
               :min "0"
               :on-change #(reset! have-run-distance (-> % .-target .-value parse-double))}]
 
@@ -76,7 +75,6 @@
       [:legend "In the following time"]
 
       [:select {:id "hours"
-                :class "border"
                 :on-change #(reset! have-run-hours (-> % .-target .-value int))}
        (for [hour (range 24)]
          [:option {:value hour
@@ -85,7 +83,6 @@
       [:label {:for "hours"} "Hours"]
 
       [:select {:id "minutes"
-                :class "border"
                 :on-change #(reset! have-run-minutes (-> % .-target .-value int))}
        (for [minute (range 60)]
          [:option {:value minute
@@ -94,7 +91,6 @@
       [:label {:for "minutes"} "Minutes"]
 
       [:select {:id "seconds"
-                :class "border"
                 :on-change #(reset! have-run-seconds (-> % .-target .-value int))}
        (for [second (range 60)]
          [:option {:value second
@@ -105,7 +101,6 @@
      [:label {:for "want-run-distance"} "I want to run ..."]
      [:input {:id "want-run-distance"
               :type "number"
-              :class "border"
               :min "0"
               :on-change #(reset! want-run-distance (-> % .-target .-value int))}]
 
@@ -135,29 +130,28 @@
 
 (defn pace-table []
   [:section
-   [:h2 {:class "text-xl"} "Pace Table"]
-   [:table {:class "table-auto border"}
-    [:thead {:class "sticky"}
+   [:h2 "Pace Table"]
+   [:table
+    [:thead
      [:tr
-      [:th {:class "border"} "1 mile"]
-      [:th {:class "border"} "5k"]
-      [:th {:class "border"} "10k"]
-      [:th {:class "border"} "Half"]
-      [:th {:class "border"} "Marathon"]]]
-    [:tbody {:class "tabular-nums"}
+      [:th "1 mile"]
+      [:th "5k"]
+      [:th "10k"]
+      [:th "Half"]
+      [:th "Marathon"]]]
+    [:tbody
      (for [pace-per-mile (range 300 600 5)]
        [:tr
-        [:td {:class "border text-right p-1"} (format-pace pace-per-mile)]
-        [:td {:class "border text-right p-1"} (format-pace (get-time pace-per-mile 1 3.107))]
-        [:td {:class "border text-right p-1"} (format-pace (get-time pace-per-mile 1 6.214))]
-        [:td {:class "border text-right p-1"} (format-pace (get-time pace-per-mile 1 13.1))]
-        [:td {:class "border text-right p-1"} (format-pace (get-time pace-per-mile 1 26.2))]])]]])
+        [:td (format-pace pace-per-mile)]
+        [:td (format-pace (get-time pace-per-mile 1 3.107))]
+        [:td (format-pace (get-time pace-per-mile 1 6.214))]
+        [:td (format-pace (get-time pace-per-mile 1 13.1))]
+        [:td (format-pace (get-time pace-per-mile 1 26.2))]])]]])
 
 (defn app []
-  [:main {:class "p-2 md:p-8"}
-   [:h1 {:class "text-2xl"} "Pace Calculator"]
-   [:a {:href "https://git.sr.ht/~svbn/pace-calculator"
-        :class "text-blue-600"} "Source Code"]
+  [:main
+   [:h1 "Pace Calculator"]
+   [:a {:href "https://git.sr.ht/~svbn/pace-calculator"} "Source Code"]
    [:br]
    [source]
    [:br]
