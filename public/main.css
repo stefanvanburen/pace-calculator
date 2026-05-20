@@ -1,0 +1,35 @@
+*, *::before, *::after {
+	box-sizing:border-box;
+}
+main {
+	padding:0.5rem;
+}
+@media(min-width:768px) {
+	main {
+		padding:2rem;
+	}
+}
+input, select {
+	border:1px solid;
+}
+table {
+	table-layout:auto;
+	border-collapse:collapse;
+	border:1px solid;
+}
+thead {
+	position:sticky;
+	top:0;
+	background-color:white;
+}
+th, td {
+	border:1px solid;
+	padding:0.25rem;
+}
+td {
+	text-align:right;
+}
+tbody {
+	font-variant-numeric:tabular-nums;
+}
+
