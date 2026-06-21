@@ -1,3 +1,6 @@
+:root {
+	color-scheme:light dark;
+}
 *, *::before, *::after {
 	box-sizing:border-box;
 }
@@ -20,7 +23,7 @@ table {
 thead {
 	position:sticky;
 	top:0;
-	background-color:white;
+	background-color:Canvas;
 }
 th, td {
 	border:1px solid;
