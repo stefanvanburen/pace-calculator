@@ -2,15 +2,14 @@ image: archlinux
 packages:
   - jre-openjdk-headless
   - hut
-  - unzip
+  - nodejs
+  - npm
 oauth: pages.sr.ht/PAGES:RW
 tasks:
   - build: |
       cd pace-calculator
-      curl -fsSL https://bun.com/install | bash
-      source /home/build/.bashrc
-      bun install
-      bun run build
+      npm install
+      npm run build
   - package: |
       cd pace-calculator
       tar -C public -cvz . > site.tar.gz
