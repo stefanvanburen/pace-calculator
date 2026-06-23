@@ -8,7 +8,7 @@ oauth: pages.sr.ht/PAGES:RW
 tasks:
   - build: |
       cd pace-calculator
-      npm install
+      npm ci
       npm run build
   - package: |
       cd pace-calculator
