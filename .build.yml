@@ -3,15 +3,13 @@ packages:
   - jre-openjdk-headless
   - hut
   - nodejs
+  - npm
 oauth: pages.sr.ht/PAGES:RW
 tasks:
   - build: |
-      curl https://mise.run | sh
-      export PATH="$HOME/.local/bin:$HOME/.local/share/mise/shims:$PATH"
-      mise use -g aube
       cd pace-calculator
-      aube ci
-      aube run build
+      npm ci
+      npm run build
   - package: |
       cd pace-calculator
       tar -C public -cvz . > site.tar.gz
