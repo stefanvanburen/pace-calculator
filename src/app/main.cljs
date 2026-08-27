@@ -152,7 +152,7 @@
 (defn app []
   [:main
    [:h1 "Pace Calculator"]
-   [:a {:href "https://git.sr.ht/~svbn/pace-calculator"} "Source Code"]
+   [:a {:href "https://github.com/stefanvanburen/pace-calculator"} "Source Code"]
    [:br]
    [source]
    [:br]
